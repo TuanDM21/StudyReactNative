@@ -4,12 +4,12 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <View>
-        <TextInput placeholder='your todo' />
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.TextInput} placeholder='your todo' />
         <Button title="Add todo" />
       </View>
       <View>
-        <Text content='Todo 1' />
+        <Text content='Todo 1' >The todo list...</Text>
       </View>
     </View>
   );
@@ -26,5 +26,8 @@ const styles = StyleSheet.create({
   TextInput: {
     borderWidth: 2,
     borderColor: 'black',
+    padding: 8,
+    marginRight: 8,
+    width: '70%',
   },
 });
