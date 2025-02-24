@@ -5,6 +5,8 @@ import { useState } from 'react';
 
 export default function App() {
 
+  const [todoList, setToDoList] = useState([])
+
   const [todoText, setTodoText] = useState('');
 
   function textInputChanged(textChange){
@@ -12,7 +14,7 @@ export default function App() {
   }
 
   function addTodo(){
-    console.log(todoText)
+    setToDoList((currentTodoList) => [...currentTodoList,todoText]);
   } 
 
   return (
@@ -22,7 +24,8 @@ export default function App() {
         <Button onPress={addTodo} title="Add todo" />
       </View>
       <View style={styles.todoList}>
-        <Text>The todo list...</Text>
+        {todoList.map((todo) => <Text key={todo}>{todo}</Text>)
+        }
       </View>
     </View>
   );
